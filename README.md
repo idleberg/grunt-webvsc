@@ -2,7 +2,6 @@
 
 [![npm](https://img.shields.io/npm/l/grunt-webvsc.svg?style=flat-square)](https://www.npmjs.org/package/grunt-webvsc)
 [![npm](https://img.shields.io/npm/v/grunt-webvsc.svg?style=flat-square)](https://www.npmjs.org/package/grunt-webvsc)
-[![npm](https://img.shields.io/npm/dm/grunt-webvsc.svg?style=flat-square)](https://www.npmjs.org/package/grunt-webvsc)
 [![Travis](https://img.shields.io/travis/idleberg/grunt-webvsc.svg?style=flat-square)](https://travis-ci.org/idleberg/grunt-webvsc)
 [![David](https://img.shields.io/david/idleberg/grunt-webvsc.svg?style=flat-square)](https://david-dm.org/idleberg/grunt-webvsc)
 [![David](https://img.shields.io/david/dev/idleberg/grunt-webvsc.svg?style=flat-square)](https://david-dm.org/idleberg/grunt-webvsc?type=dev)
