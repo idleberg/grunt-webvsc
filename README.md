@@ -20,10 +20,6 @@ $ yarn add grunt-webvsc
 
 ## Usage
 
-`webvsc([options])`
-
-The output file-extension will automatically be set to `.webvs`, unless specified explicitly in your `Gruntfile.js`
-
 **Example:**
 
 ```js
@@ -42,6 +38,8 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['webvsc']);
 };
 ```
+
+The output file-extension will automatically be set to `.webvs`, unless specified explicitly in your `Gruntfile.js`.
 
 ## Options
 
