@@ -22,11 +22,9 @@ $ yarn add grunt-webvsc
 
 `webvsc([options])`
 
-The output file-extension will automatically be set to `.webvs`, unless specified explicitly
+The output file-extension will automatically be set to `.webvs`, unless specified explicitly in your `Gruntfile.js`
 
 **Example:**
-
-Standard usage
 
 ```js
 module.exports = function(grunt) {
@@ -43,25 +41,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-webvsc');
   grunt.registerTask('default', ['webvsc']);
 };
-```
-
-**Example:**
-
-Minify JSON and rename output files
-
-```js
-const gulp = require('gulp');
-const rename = require('gulp-rename');
-const webvsc = require('grunt-webvsc');
-
-gulp.task('convert', (done) => {
-  gulp.src('input/**/*.avs')
-  .pipe(webvsc({ minify: true }))
-  .pipe(rename({ suffix: '.min' }))
-  .pipe(gulp.dest('output'));
-
-  done();
-});
 ```
 
 ## Options
