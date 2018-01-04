@@ -9,7 +9,7 @@ const replaceExt = require('replace-ext');
 const { statSync } = require('fs');
 
 module.exports = function (grunt) {
-  grunt.registerMultiTask('webvsc', 'Minify HTML', function () {
+  grunt.registerMultiTask('webvsc', 'Convert AVS presets', function () {
     let options = this.options();
     let count = 0;
 
@@ -44,6 +44,6 @@ module.exports = function (grunt) {
       grunt.verbose.writeln('Converted ' + chalk.cyan(file.dest));
     });
 
-    grunt.log.writeln('Converted ' + chalk.cyan(count) + ' files' + (this.files.length !== count ? ' (' + chalk.red(this.files.length - count) + ' failed)' : ''));
+    grunt.log.writeln('Converted ' + chalk.cyan(count) + ' presets' + (this.files.length !== count ? ' (' + chalk.red(this.files.length - count) + ' failed)' : ''));
   });
 };
