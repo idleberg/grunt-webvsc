@@ -22,7 +22,17 @@
     "replace-ext": "^1.0.0",
     "through2": "^2.0.3"
   },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^20.1.0",
+    "grunt-jsonlint": "^1.1.0"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "grunt"
   }
 }
