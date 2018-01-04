@@ -36,7 +36,7 @@ grunt.loadNpmTasks('grunt-webvsc');
 grunt.registerTask('default', ['webvsc']);
 ```
 
-The output file-extension will automatically be set to `.webvs`, unless specified explicitly in your `Gruntfile.js`.
+The output file-extension will automatically be set to `.webvs`, unless specified explicitly otherwise in your `Gruntfile.js`.
 
 ## Options
 
