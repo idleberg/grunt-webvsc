@@ -27,20 +27,17 @@ The output file-extension will automatically be set to `.webvs`, unless specifie
 **Example:**
 
 ```js
-module.exports = function(grunt) {
+grunt.initConfig({
+webvsc: {
+  options: {
+    minify: true,
+  },
+  files: ['input/**/*.avs']
+}
+});
 
-  grunt.initConfig({
-    webvsc: {
-      options: {
-        minify: true,
-      },
-      files: ['input/**/*.avs']
-    }
-  });
-
-  grunt.loadNpmTasks('grunt-webvsc');
-  grunt.registerTask('default', ['webvsc']);
-};
+grunt.loadNpmTasks('grunt-webvsc');
+grunt.registerTask('default', ['webvsc']);
 ```
 
 ## Options
@@ -69,6 +66,12 @@ Control the amount of output displayed:
 * `0` Hide output
 * `1` List detected components
 * `2` List component details
+
+## Related Projects
+
+* [webvsc](https://github.com/grandchild/AVS-File-Decoder)
+* [webvsc-cli](https://github.com/idleberg/webvsc-cli)
+* [gulp-webvsc](https://github.com/idleberg/gulp-webvsc)
 
 ## License
 
