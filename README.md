@@ -24,12 +24,12 @@ $ yarn add grunt-webvsc
 
 ```js
 grunt.initConfig({
-webvsc: {
-  options: {
-    minify: true,
-  },
-  files: ['input/**/*.avs']
-}
+  webvsc: {
+    options: {
+      minify: true,
+    },
+    files: ['input/**/*.avs']
+  }
 });
 
 grunt.loadNpmTasks('grunt-webvsc');
