@@ -28,7 +28,7 @@ module.exports = function (grunt) {
 
       let presetContents = grunt.file.read(input, {encoding: null});
       let presetName = basename(input, extname(input));
-      let presetDate = statSync(input).mtime.toISOString();
+      let presetDate = (options.noDate === true)? '2000-03-03T00:00:00.000Z' : statSync(file.path).mtime.toISOString();
       let whitespace = (options.minify === true) ? 0 : 2;
 
       try {
