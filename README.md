@@ -43,7 +43,7 @@ The output file-extension will automatically be set to `.webvs`, unless specifie
 ### hidden
 
 Type: `boolean`  
-Default: `false`  
+Default: `true`  
 
 Don't extract hidden strings from fixed-size strings
 
