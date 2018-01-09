@@ -12,6 +12,7 @@ module.exports = function (grunt) {
   grunt.registerMultiTask('webvsc', 'Convert AVS presets', function () {
     let options = this.options();
     let count = 0;
+    let whitespace = (options.minify === true) ? 0 : 2;
 
     this.files.forEach(function (file) {
       let input = file.src[0];
@@ -29,7 +30,6 @@ module.exports = function (grunt) {
       let presetContents = grunt.file.read(input, {encoding: null});
       let presetName = basename(input, extname(input));
       let presetDate = (options.noDate === true)? '2000-03-03T00:00:00.000Z' : statSync(file.path).mtime.toISOString();
-      let whitespace = (options.minify === true) ? 0 : 2;
 
       try {
         output = convertPreset(presetContents, presetName, presetDate, options);
