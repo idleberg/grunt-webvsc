@@ -22,7 +22,7 @@ module.exports = function(grunt) {
             src: './*.avs',
             dest: './test/.tmp/',
             rename: function(dest, src) {
-                return dest + src.replace(".avs", ".webvs");
+              return dest + src.replace(".avs", ".webvs");
             }
           }],
       },
