@@ -1,8 +1,7 @@
-*.avs
-*.webvs
 bower_components/
 node_modules/
 npm-debug.log
+test/.tmp
 todo.md
 vendor/
 yarn.lock
