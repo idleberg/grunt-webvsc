@@ -29,7 +29,7 @@ module.exports = function (grunt) {
 
       let presetContents = grunt.file.read(input, {encoding: null});
       let presetName = basename(input, extname(input));
-      let presetDate = (options.noDate === true)? '2000-03-03T00:00:00.000Z' : statSync(file.path).mtime.toISOString();
+      let presetDate = (options.noDate === true)? '2000-03-03T00:00:00.000Z' : statSync(input).mtime.toISOString();
 
       try {
         output = convertPreset(presetContents, presetName, presetDate, options);
