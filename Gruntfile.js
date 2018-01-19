@@ -16,9 +16,15 @@ module.exports = function(grunt) {
     },
     webvsc: {
       convert: {
-          files: {
-            './test/.tmp/superscope.webvs': './test/fixtures/superscope.avs'
-          },
+          files: [{
+            expand: true,
+            cwd: './test/fixtures',
+            src: './*.avs',
+            dest: './test/.tmp/',
+            rename: function(dest, src) {
+                return dest + src.replace(".avs", ".webvs");
+            }
+          }],
       },
       options: {
         minify: true,
