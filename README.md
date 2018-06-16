@@ -23,17 +23,24 @@ $ yarn add grunt-webvsc
 **Example:**
 
 ```js
-grunt.initConfig({
-  webvsc: {
-    options: {
-      minify: true,
-    },
-    files: ['input/**/*.avs']
-  }
-});
+module.exports = function(grunt) {
 
-grunt.loadNpmTasks('grunt-webvsc');
-grunt.registerTask('default', ['webvsc']);
+  // Project configuration.
+  grunt.initConfig({
+    webvsc: {
+      options: {
+        minify: true,
+      },
+      files: ['input/**/*.avs']
+    }
+  });
+
+  // Load the plugin that provides the "uglify" task.
+  grunt.loadNpmTasks('grunt-webvsc');
+  
+  // Default task(s).
+  grunt.registerTask('default', ['webvsc']);
+};
 ```
 
 The output file-extension will automatically be set to `.webvs`, unless specified explicitly otherwise in your `Gruntfile.js`.

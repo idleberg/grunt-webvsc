@@ -1,8 +1,10 @@
-*.avs
-*.webvs
+# Package Managers
 bower_components/
 node_modules/
 npm-debug.log
-todo.md
 vendor/
-yarn.lock
+
+# Project specific
+*.webvs
+!test/**/*.webvs
+todo.md

@@ -1,1 +1,5 @@
+.circleci
+.editorconfig
 .travis.yml
+Gruntfile.js
+test/

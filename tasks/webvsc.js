@@ -1,49 +1,37 @@
-
 'use strict';
 
 // Dependencies
-const { basename, extname } = require('path')
 const chalk = require('chalk');
-const { convertPreset } = require('@visbot/webvsc');
 const replaceExt = require('replace-ext');
-const { statSync } = require('fs');
+const { convertFile } = require('@visbot/webvsc');
 
-module.exports = function (grunt) {
-  grunt.registerMultiTask('webvsc', 'Convert AVS presets', function () {
-    let options = this.options();
+module.exports = grunt => {
+  grunt.registerMultiTask('webvsc', 'Convert AVS presets', async function () {
+    const done = this.async();
+    const options = this.options();
     let count = 0;
-    let whitespace = (options.minify === true) ? 0 : 2;
 
-    this.files.forEach(function (file) {
-      let input = file.src[0];
-      let output;
+    await Promise.all(this.files[0].src.map(async input => {
+      if (!input) return;
 
-      if (!input) {
-        return;
-      }
-
-      if (file.dest === 'files') {
-        // always change file extension unless specified explicitly
-        file.dest = replaceExt(input, '.webvs');
-      }
-
-      let presetContents = grunt.file.read(input, {encoding: null});
-      let presetName = basename(input, extname(input));
-      let presetDate = (options.noDate === true)? '2000-03-03T00:00:00.000Z' : statSync(file.path).mtime.toISOString();
+      let contents;
 
       try {
-        output = convertPreset(presetContents, presetName, presetDate, options);
+        contents = await convertFile(input, options);
       } catch (err) {
-        grunt.warn(input + '\n' + err);
+        grunt.warn(`${input}\n${err}`);
         return;
       }
 
+      let output = replaceExt(input, '.webvs');
+
+      grunt.file.write(output, contents);
       count++;
+    }));
 
-      grunt.file.write(file.dest, JSON.stringify(output, null, whitespace));
-      grunt.verbose.writeln('Converted ' + chalk.cyan(file.dest));
-    });
+    let failedMsg = (this.files[0].length !== count ? ' (' + chalk.red(this.files[0].src.length - count) + ' failed)' : '');
+    grunt.log.writeln(`Converted ${chalk.cyan(count)} presets${failedMsg}`);
 
-    grunt.log.writeln('Converted ' + chalk.cyan(count) + ' presets' + (this.files.length !== count ? ' (' + chalk.red(this.files.length - count) + ' failed)' : ''));
+    done();
   });
 };
