@@ -6,5 +6,5 @@ vendor/
 
 # Project specific
 *.webvs
-!test/**/*.webvs
+!test/expected/*.webvs
 todo.md
