@@ -3,7 +3,7 @@
 // Dependencies
 const chalk = require('chalk');
 const replaceExt = require('replace-ext');
-const { convertFile } = require('@visbot/webvsc');
+const { convertFile } = require('@visbot/webvsc/node');
 
 module.exports = grunt => {
   grunt.registerMultiTask('webvsc', 'Convert AVS presets', async function () {
