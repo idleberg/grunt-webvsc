@@ -1,37 +1,31 @@
 'use strict';
 
 // Dependencies
-const chalk = require('chalk');
+const eachAsync = require('each-async');
 const replaceExt = require('replace-ext');
 const { convertFile } = require('@visbot/webvsc');
+const { join } = require('path');
 
-module.exports = grunt => {
-  grunt.registerMultiTask('webvsc', 'Convert AVS presets', async function () {
+module.exports = function (grunt) {
+  grunt.registerMultiTask('webvsc', 'Convert AVS presets', function() {
     const done = this.async();
     const options = this.options();
     let count = 0;
 
-    await Promise.all(this.files[0].src.map(async input => {
-      if (!input) return;
+    eachAsync(this.filesSrc, (input, i, next) => {
+      convertFile(input, options)
+        .then( result => {
+          const outFile = join(this.target, replaceExt(input, '.webvs'));
+          grunt.file.write(outFile, result);
 
-      let contents;
-
-      try {
-        contents = await convertFile(input, options);
-      } catch (err) {
-        grunt.warn(`${input}\n${err}`);
-        return;
-      }
-
-      let output = replaceExt(input, '.webvs');
-
-      grunt.file.write(output, contents);
-      count++;
-    }));
-
-    let failedMsg = (this.files[0].length !== count ? ' (' + chalk.red(this.files[0].src.length - count) + ' failed)' : '');
-    grunt.log.writeln(`Converted ${chalk.cyan(count)} presets${failedMsg}`);
-
-    done();
-  });
+          count++;
+          next();
+        })
+        .catch( err => {
+          grunt.log.errorlns(err);
+        });
+      });
+    }, () => {
+      done();
+    });
 };
