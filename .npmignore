@@ -2,4 +2,6 @@
 .editorconfig
 .travis.yml
 Gruntfile.js
+npm-debug.log
 test/
+yarn-error.log
