@@ -31,7 +31,10 @@ module.exports = function(grunt) {
       options: {
         minify: true,
       },
-      files: ['input/**/*.avs']
+      build: {
+        src: ['**/*.avs'],
+        dest: './output/'
+      }
     }
   });
 
