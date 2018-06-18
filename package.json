@@ -37,7 +37,7 @@
     }
   },
   "scripts": {
-    "precommit": "grunt eslint jsonlint",
+    "precommit": "grunt",
     "test": "grunt"
   }
 }
