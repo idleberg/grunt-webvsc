@@ -1,6 +1,6 @@
 {
   "name": "grunt-webvsc",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "Grunt task to convert Winamp AVS presets into Webvs JSON",
   "author": "Jan T. Sott",
   "license": "MIT",
