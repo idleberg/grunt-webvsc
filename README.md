@@ -1,10 +1,10 @@
 # grunt-webvsc
 
-[![npm](https://img.shields.io/npm/l/grunt-webvsc.svg?style=flat-square)](https://www.npmjs.org/package/grunt-webvsc)
-[![npm](https://img.shields.io/npm/v/grunt-webvsc.svg?style=flat-square)](https://www.npmjs.org/package/grunt-webvsc)
-[![Travis](https://img.shields.io/travis/idleberg/grunt-webvsc.svg?style=flat-square)](https://travis-ci.org/idleberg/grunt-webvsc)
-[![David](https://img.shields.io/david/idleberg/grunt-webvsc.svg?style=flat-square)](https://david-dm.org/idleberg/grunt-webvsc)
-[![David](https://img.shields.io/david/dev/idleberg/grunt-webvsc.svg?style=flat-square)](https://david-dm.org/idleberg/grunt-webvsc?type=dev)
+[![npm](https://flat.badgen.net/npm/license/grunt-webvsc)](https://www.npmjs.org/package/grunt-webvsc)
+[![npm](https://flat.badgen.net/npm/v/grunt-webvsc)](https://www.npmjs.org/package/grunt-webvsc)
+[![Travis](https://flat.badgen.net/travis/idleberg/grunt-webvsc)](https://travis-ci.org/idleberg/grunt-webvsc)
+[![David](https://flat.badgen.net/david/dep/idleberg/grunt-webvsc)](https://david-dm.org/idleberg/grunt-webvsc)
+[![David](https://flat.badgen.net/david/dev/idleberg/grunt-webvsc)](https://david-dm.org/idleberg/grunt-webvsc?type=dev)
 
 Grunt task to convert [Winamp AVS presets](https://www.wikiwand.com/en/Advanced_Visualization_Studio) into [Webvs](https://github.com/azeem/webvs) JSON.
 
